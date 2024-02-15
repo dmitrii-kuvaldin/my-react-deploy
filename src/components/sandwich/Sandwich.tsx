@@ -2,14 +2,18 @@ import { FC, useState } from 'react'
 
 /// подключение css модулей через переменную
 import style from './Sandwich.module.css'
+import useLocalStorage from '../../hooks/useLS';
 
 
 const Sandwich: FC = () => {
 
   const [sandwich, setSandwich] = useState('Бутерброд: ');
 
+  const [bread, setBread] = useLocalStorage('bread', '');
+
   function addBread() {
     setSandwich(`${sandwich} хлеб`)
+    setBread(`${sandwich} хлеб`)
   }
   function addKolbasa() {
     setSandwich(`${sandwich} колбаса`)
